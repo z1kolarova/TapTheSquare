@@ -47,10 +47,10 @@ Window {
             clip:true
 
             focus: true
-            Keys.onUpPressed: y -= 10
-            Keys.onDownPressed: y += 10
-            Keys.onLeftPressed: x -= 10
-            Keys.onRightPressed: x += 10
+            //Keys.onUpPressed: y -= 10
+            //Keys.onDownPressed: y += 10
+            //Keys.onLeftPressed: x -= 10
+            //Keys.onRightPressed: x += 10
 
             Behavior on x {
                 NumberAnimation {
@@ -75,11 +75,14 @@ Window {
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    //parent.rotation += 20
-                    //rectangle001.x = Math.random() * (rectangle001.parent.width - rectangle001.width)
-                    //rectangle001.y = Math.random() * (rectangle001.parent.height - rectangle001.height)
+                    parent.rotation += 20
+                    rectangle001.x = Math.random() * (rectangle001.parent.width - rectangle001.width)
+                    rectangle001.y = Math.random() * (rectangle001.parent.height - rectangle001.height)
                     rectangle001.clickCount++
-                    timer001.interval -= 50
+                    if(timer001.interval >= 51)
+                        timer001.interval -= 50
+                    //if(timer001.interval >= 1.2)
+                        //timer001.interval *= 0.9
                 }
             }
         }
